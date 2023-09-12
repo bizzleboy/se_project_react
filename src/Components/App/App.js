@@ -2,13 +2,16 @@
 import "./App.css";
 //import ItemModal from './App/ItemModal';
 import Header from "./Header/Header";
-import Footer from "../footer/Footer";
+import Footer from "../../footer/Footer";
 import Main from "./Main/Main";
-import ModalWithForm from "../ModalWithForm/ModalWithForm";
+import ModalWithForm from "../../ModalWithForm/ModalWithForm";
 import { useEffect, useState } from "react";
-import ItemModal from "../ItemModal/ItemModal";
-import { getForecastWeather, parseWeatherData } from "../util/weatherApi";
-import "../App/App.css";
+import ItemModal from "../../ItemModal/ItemModal";
+import {
+  getForecastWeather,
+  parseWeatherData,
+} from "../../../src/utils/weatherApi";
+import "./App.css";
 
 function App() {
   const weatherTemp = "75789f";
