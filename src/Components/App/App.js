@@ -7,10 +7,7 @@ import Main from "./Main/Main";
 import ModalWithForm from "../../ModalWithForm/ModalWithForm";
 import { useEffect, useState } from "react";
 import ItemModal from "../../ItemModal/ItemModal";
-import {
-  getForecastWeather,
-  parseWeatherData,
-} from "../../../src/utils/weatherApi";
+import { getForecastWeather, parseWeatherData } from "../../utils/weatherApi";
 import "./App.css";
 
 function App() {
