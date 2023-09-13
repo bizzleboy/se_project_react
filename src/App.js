@@ -2,11 +2,11 @@
 import "./App.css";
 //import ItemModal from './App/ItemModal';
 import Header from "./components/Header/Header";
-import Footer from "./footer/Footer";
+import Footer from "./components/footer/Footer";
 import Main from "./components/Main/Main";
-import ModalWithForm from "./ModalWithForm/ModalWithForm";
+import ModalWithForm from "./components/ModalWithForm/ModalWithForm";
 import { useEffect, useState } from "react";
-import ItemModal from "./ItemModal/ItemModal";
+import ItemModal from "./components/ItemModal/ItemModal";
 import { getForecastWeather, parseWeatherData } from "./utils/weatherApi";
 import "./App.css";
 
