@@ -1,14 +1,21 @@
-const ItemCard = ({ x, onSelectCard }) => {
+import "./ItemCard.css";
+const ItemCard = ({ item, onSelectCard }) => {
+  // Declared the listener function
+  const handleImageClick = () => {
+    onSelectCard(item);
+  };
+
   return (
-    <div>
+    <div className="card_details">
       <div>
         <img
-          src={x.link}
+          src={item.link}
           className="card_image"
-          onClick={() => onSelectCard(x)}
+          onClick={handleImageClick} // Use the listener function here
+          alt="cards"
         />
       </div>
-      <div className="card_name">{x.name}</div>
+      <div className="card_name">{item.name}</div>
     </div>
   );
 };

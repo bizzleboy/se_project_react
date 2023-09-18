@@ -1,22 +1,21 @@
 import React from "react";
-
 import "./ModalWithForm.css";
-const ModalWithForm = ({
-  children,
-  buttonText = "Add garment",
-  title,
-  onClose,
-  name,
-}) => {
+import AddGarmentDisabledImage from "../../images/AddGarmentDisabled.svg";
+
+import CloseIcon from "../../images/CloseDark.svg";
+
+const ModalWithForm = ({ children, buttonText, title, onClose, name }) => {
   return (
     <div className={`modal modal_type_${name}`}>
       <div className="modal__content">
-        <button type="button" onClick={onClose}>
-          Close
+        <button type="button" onClick={onClose} className="close_modal">
+          <img src={CloseIcon} alt="Close" />
         </button>
-        <h3>{title} </h3>
-        <form>{children}</form>
-        <button type="submit">{buttonText}</button>
+        <h3 className="modal__title">{title} </h3>
+        <form className="modal__children">{children}</form>
+        <button className="modal__submit" type="submit">
+          <img src={AddGarmentDisabledImage} alt="Add Garment Disabled" />
+        </button>
       </div>
     </div>
   );

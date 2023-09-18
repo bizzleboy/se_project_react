@@ -1,5 +1,15 @@
+@font-face {
+  font-family: CabinetBold;
+  src: url("../../fonts/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Bold.ttf")
+    format("truetype");
+  font-weight: 700;
+  font-display: swap;
+  font-style: normal;
+}
+
 .header {
-  background-color: cadetblue;
+  font-family: CabinetBold;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -17,3 +27,15 @@
   gap: 20px;
   align-items: center;
 }
+
+/* Default state */
+.header__add-garment {
+  height: 36px;
+  width: 124px;
+
+  border: none; /* Remove default button borders */
+  background-color: transparent; /* Remove default button background */
+  /* Additional styles for width, height, etc., if necessary */
+}
+
+/* Hover state */

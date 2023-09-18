@@ -1,0 +1,38 @@
+.modal__content {
+  display: inline-block; /* This will make the container adapt to the content */
+  position: relative; /* To ensure relative positioning for inner content */
+  background: #fff; /* Optional: Just to ensure the background is solid */
+  padding: 0; /* Optional: A little space around the content */
+  max-width: 500px;
+}
+
+.close_modal {
+  border: none;
+  background: transparent;
+  position: absolute; /* This will position the close button relative to modal__content */
+  top: 24px; /* Adjust as needed */
+  right: 24px; /* Adjust as needed */
+  cursor: pointer;
+}
+
+.close_modal img {
+  display: block; /* This will remove any unwanted margins around the image */
+}
+
+.modal__image {
+  border-top-left-radius: 16px;
+  border-top-right-radius: 16px;
+}
+
+.modal__clothing-name {
+  margin-left: 32px;
+  margin-top: 20px;
+  font-family: CabinetBold;
+}
+
+.modal__weather-type {
+  margin-left: 32px;
+  margin-top: 12px;
+  margin-bottom: 32px;
+  font-family: CabinetBold;
+}
