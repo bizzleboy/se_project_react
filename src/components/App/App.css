@@ -20,65 +20,7 @@
   font-family: CabinetBold;
   padding: 0 20px;
 }
-.weather {
-  position: relative;
-}
 
-.weather__info {
-  position: absolute;
-  top: 20px;
-  left: 16px;
-  color: white;
-  font-size: 36px;
-}
-.weather__image {
-  width: 100%;
-}
-
-.card_section {
-  margin-top: 20px;
-}
-
-.card_details {
-  display: flex; /* Use flexbox for the container */
-  flex-direction: column; /* Stack children vertically */
-  align-items: center; /* Horizontally center the children */
-  justify-content: center;
-}
-.card_name {
-  display: flex;
-  position: relative;
-  bottom: 307px;
-  text-align: center;
-  background-color: white;
-  padding: 0px 12px 0 12px;
-
-  display: inline-block;
-}
-
-.card_image {
-  width: 328px;
-  height: 328px;
-  border-radius: 10px;
-  outline: 1px solid #000; /* This will create a black outline. Adjust color and thickness as desired. */
-}
-
-.card_items {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  margin-top: 20px;
-  font-family: CabinetMedium;
-  color: rgba(0, 0, 0, 0.6);
-}
-.footer {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-  padding: 0 20px;
-  font-family: CabinetMedium;
-}
 .input-container {
   margin-bottom: 1rem; /* Space between each input group */
   display: flex;
@@ -110,20 +52,24 @@
   margin-left: 28px;
 }
 
-.modal__options input[type="radio"] + label {
+.modal__options .modal__options__radio-label {
   color: gray;
 }
 
-.modal__options input[type="radio"] {
+.modal__options .modal__options__radio-input {
   opacity: 0.5; /* You can adjust this value for desired grayed-out effect */
 }
-.modal__options input[type="radio"]:checked + label {
+
+.modal__options
+  .modal__options__radio-input:checked
+  + .modal__options__radio-label {
   color: black;
 }
 
-.modal__options input[type="radio"]:checked {
+.modal__options .modal__options__radio-input:checked {
   opacity: 1; /* Fully opaque */
 }
+
 .modal__radio {
   margin-bottom: 8px;
 }

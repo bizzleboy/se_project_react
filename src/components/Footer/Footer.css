@@ -1,12 +1,7 @@
-@font-face {
-  font-family: CabinetMedium;
-  src: url("../../fonts/CabinetGrotesk_Complete/Fonts/WEB/fonts/CabinetGrotesk-Medium.ttf")
-    format("truetype");
-  font-weight: 500;
-  font-display: swap;
-  font-style: normal;
-}
-
 .footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  padding: 0 20px;
   font-family: CabinetMedium;
 }

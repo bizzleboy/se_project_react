@@ -86,54 +86,58 @@ function App() {
           <div className="modal__options">
             <p>Select the weather type:</p>
             <div>
-              <div className="modal__radio">
+              <div className="modal__options__radio">
                 <input
                   type="radio"
                   name="weatherType"
                   id="hot"
                   value="hot"
+                  className="modal__options__radio-input"
                   onChange={() => setSelectedWeatherType("hot")}
                 />
                 <label
                   htmlFor="hot"
-                  className={
+                  className={`modal__options__radio-label ${
                     selectedWeatherType === "hot" ? "selected" : "unselected"
-                  }
+                  }`}
                 >
                   Hot
                 </label>
               </div>
-              <div className="modal__radio">
+
+              <div className="modal__options__radio">
                 <input
                   type="radio"
                   name="weatherType"
                   id="warm"
                   value="warm"
+                  className="modal__options__radio-input"
                   onChange={() => setSelectedWeatherType("warm")}
                 />
                 <label
                   htmlFor="warm"
-                  className={
+                  className={`modal__options__radio-label ${
                     selectedWeatherType === "warm" ? "selected" : "unselected"
-                  }
+                  }`}
                 >
                   Warm
                 </label>
               </div>
 
-              <div className="modal__radio">
+              <div className="modal__options__radio">
                 <input
                   type="radio"
                   name="weatherType"
                   id="cold"
                   value="cold"
+                  className="modal__options__radio-input"
                   onChange={() => setSelectedWeatherType("cold")}
                 />
                 <label
                   htmlFor="cold"
-                  className={
+                  className={`modal__options__radio-label ${
                     selectedWeatherType === "cold" ? "selected" : "unselected"
-                  }
+                  }`}
                 >
                   Cold
                 </label>

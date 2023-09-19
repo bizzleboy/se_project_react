@@ -1,2 +1,38 @@
+.card_section {
+  margin-top: 20px;
+}
+
 .card_details {
+  display: flex; /* Use flexbox for the container */
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Horizontally center the children */
+  justify-content: center;
+  cursor: pointer;
+}
+.card_name {
+  display: flex;
+  position: relative;
+  bottom: 307px;
+  text-align: center;
+  background-color: white;
+  padding: 0px 12px 0 12px;
+
+  display: inline-block;
+}
+
+.card_image {
+  width: 328px;
+  height: 328px;
+  border-radius: 10px;
+  outline: 1px solid #000; /* This will create a black outline. Adjust color and thickness as desired. */
+}
+
+.card_items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+  font-family: CabinetMedium;
+  color: rgba(0, 0, 0, 0.6);
 }

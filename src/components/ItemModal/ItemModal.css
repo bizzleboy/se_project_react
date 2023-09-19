@@ -15,10 +15,6 @@
   cursor: pointer;
 }
 
-.close_modal img {
-  display: block; /* This will remove any unwanted margins around the image */
-}
-
 .modal__image {
   border-top-left-radius: 16px;
   border-top-right-radius: 16px;
@@ -26,13 +22,26 @@
 
 .modal__clothing-name {
   margin-left: 32px;
-  margin-top: 20px;
+  padding-top: 20px;
   font-family: CabinetBold;
 }
 
 .modal__weather-type {
   margin-left: 32px;
-  margin-top: 12px;
-  margin-bottom: 32px;
+
+  padding-top: 12px;
+  padding-bottom: 32px;
   font-family: CabinetBold;
+}
+
+.modal__details {
+  display: flex;
+
+  flex-direction: column;
+
+  position: relative;
+  bottom: 4px;
+  background-color: white;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
 }
