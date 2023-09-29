@@ -12,8 +12,6 @@ const ItemModal = ({ selectedCard, onClose }) => {
         <img src={selectedCard.link} alt="Card" className="modal__image" />
 
         <div className="modal__details">
-          {" "}
-          {/* New wrapper div */}
           <div className="modal__clothing-name">{selectedCard.name}</div>
           <div className="modal__weather-type">
             Weather type: {selectedCard.weather}
