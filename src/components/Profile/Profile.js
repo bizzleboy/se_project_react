@@ -2,33 +2,36 @@ import React from "react";
 import ItemCard from "../ItemCard/ItemCard";
 import "./Profile.css";
 import { defaultClothingItems } from "../../utils/constants";
+import terryImage from "../../images/terry.svg";
 
 const SideBar = () => {
   // These values can be fetched from an API or application state
-  const username = "JohnDoe";
+  const username = "Terry";
   const avatarURL = "/path-to-avatar.jpg";
 
   return (
-    <aside className="profile-sidebar">
-      <img src={avatarURL} alt="User Avatar" className="user-avatar" />
-      <h2 className="username">{username}</h2>
-      {/* Add other user profile related content if needed */}
-    </aside>
+    <div className="profile__sidebar">
+      <img src={terryImage} alt="terry" className="profile__picture" />
+      <h2 className="profile__username">{username}</h2>
+    </div>
   );
 };
 
 const ClothesSection = ({ userClothingItems, onSelectCard }) => {
   return (
     <section className="user-clothing">
-      <button onClick={() => {}} className="add-new-button">
-        + Add new
-      </button>
-
-      <div className="user-clothing-items">
-        {defaultClothingItems.map((item) => (
-          <ItemCard key={item._id} item={item} onSelectCard={onSelectCard} />
-        ))}
-        <div className="card_items"></div>
+      <div>
+        <div className="profile__header">
+          <h2 className="profile__header-title">Your items</h2>
+          <button onClick={() => {}} className="profile__add_new-button">
+            + Add new
+          </button>
+        </div>
+        <div className="card_items">
+          {defaultClothingItems.map((item) => (
+            <ItemCard key={item._id} item={item} onSelectCard={onSelectCard} />
+          ))}
+        </div>
       </div>
     </section>
   );

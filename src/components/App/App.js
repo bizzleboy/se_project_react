@@ -11,17 +11,8 @@ import { Switch, Route } from "react-router-dom/cjs/react-router-dom.min";
 import AddItemModal from "../../AddItemModal/AddItemModal";
 import Profile from "../Profile/Profile";
 import { defaultClothingItems } from "../../utils/constants";
-import api from "../../utils/api";
+import { getItems, postItem, deleteItem } from "../../utils/api";
 function App() {
-  const handleAddItemSubmit = async (item) => {
-    try {
-      const newItem = await api.addItem(item); // Assuming api.addItem adds the item and returns the new item
-      setClothingItems([newItem, ...clothingItems]);
-    } catch (error) {
-      console.error("Failed to add item:", error);
-    }
-  };
-
   const [error, setError] = useState(null);
   const [activeModal, setActiveModal] = useState("");
   const [selectedCard, setSelectedCard] = useState({});
@@ -30,6 +21,20 @@ function App() {
   const [isModalOpen, setModalOpen] = useState(false);
 
   const [clothingItems, setClothingItems] = useState([]);
+  const [items, setItems] = useState([]);
+
+  useEffect(() => {
+    const fetchItems = async () => {
+      try {
+        const fetchedItems = await getItems();
+        setItems(fetchedItems);
+      } catch (error) {
+        console.error("Error while fetching items:", error);
+      }
+    };
+
+    fetchItems();
+  }, []);
 
   const handleAddItem = (newItem) => {
     setClothingItems((prevItems) => [...prevItems, newItem]);
@@ -47,14 +52,28 @@ function App() {
     setActiveModal("preview");
     setSelectedCard(card);
   };
-  const onAddItem = (e, values) => {
-    e.preventDefault();
+
+  const handleAddNewItem = async (name, imageUrl, weather) => {
+    try {
+      const newItem = await postItem(name, imageUrl, weather);
+
+      // Update state to include the new item
+      setItems((prevItems) => [...prevItems, newItem]);
+    } catch (error) {
+      console.error("Error while adding new item:", error);
+    }
   };
 
-  const addNewItem = (newItem) => {
-    setClothingItems([...clothingItems, newItem]);
-  };
+  const handleDeleteItem = async (id) => {
+    try {
+      await deleteItem(id);
 
+      // Update state to remove the item by its id
+      setItems((prevItems) => prevItems.filter((item) => item.id !== id));
+    } catch (error) {
+      console.error("Error while deleting item:", error);
+    }
+  };
   const handleToggleSwitchChange = () => {
     if (currentTemperatureUnit === "C") setCurrentTemperatureUnit("F");
     if (currentTemperatureUnit === "F") setCurrentTemperatureUnit("C");
@@ -112,7 +131,7 @@ function App() {
           <AddItemModal
             isOpen={activeModal === "create"}
             handleCloseModal={handleCloseModal}
-            onAddItem={handleAddItem}
+            onAddItem={handleAddNewItem}
           />
         )}
         {activeModal === "preview" && (

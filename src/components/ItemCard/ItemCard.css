@@ -24,7 +24,7 @@
   width: 328px;
   height: 328px;
   border-radius: 10px;
-  outline: 1px solid #000; /* This will create a black outline. Adjust color and thickness as desired. */
+  outline: 0.5px solid #000; /* This will create a black outline. Adjust color and thickness as desired. */
 }
 
 .card_items {
