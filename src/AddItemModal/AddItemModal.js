@@ -12,7 +12,6 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
   const handleUrlChange = (e) => {
     setUrl(e.target.value);
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
 

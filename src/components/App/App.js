@@ -18,16 +18,14 @@ function App() {
   const [selectedCard, setSelectedCard] = useState({});
   const [temp, setTemp] = useState(0);
   const [currentTemperatureUnit, setCurrentTemperatureUnit] = useState("F");
-  const [isModalOpen, setModalOpen] = useState(false);
 
   const [clothingItems, setClothingItems] = useState([]);
-  const [items, setItems] = useState([]);
 
   useEffect(() => {
     const fetchItems = async () => {
       try {
         const fetchedItems = await getItems();
-        setItems(fetchedItems);
+        setClothingItems(fetchedItems);
       } catch (error) {
         console.error("Error while fetching items:", error);
       }
@@ -35,10 +33,6 @@ function App() {
 
     fetchItems();
   }, []);
-
-  const handleAddItem = (newItem) => {
-    setClothingItems((prevItems) => [...prevItems, newItem]);
-  };
 
   const handleCreateModal = () => {
     setActiveModal("create");
@@ -53,25 +47,13 @@ function App() {
     setSelectedCard(card);
   };
 
-  const handleAddNewItem = async (name, imageUrl, weather) => {
+  const handleAddItem = async (newItem) => {
     try {
-      const newItem = await postItem(name, imageUrl, weather);
-
-      // Update state to include the new item
-      setItems((prevItems) => [...prevItems, newItem]);
+      const { name, link, weather } = newItem;
+      const addedItem = await postItem(name, link, weather);
+      setClothingItems([...clothingItems, addedItem]);
     } catch (error) {
-      console.error("Error while adding new item:", error);
-    }
-  };
-
-  const handleDeleteItem = async (id) => {
-    try {
-      await deleteItem(id);
-
-      // Update state to remove the item by its id
-      setItems((prevItems) => prevItems.filter((item) => item.id !== id));
-    } catch (error) {
-      console.error("Error while deleting item:", error);
+      console.error("Failed to add item:", error);
     }
   };
   const handleToggleSwitchChange = () => {
@@ -113,7 +95,10 @@ function App() {
             />
           </Route>
           <Route path="/profile">
-            <Profile />
+            <Profile
+              userClothingItems={clothingItems}
+              onSelectCard={handleSelectedCard}
+            />
           </Route>
         </Switch>
 
@@ -131,7 +116,7 @@ function App() {
           <AddItemModal
             isOpen={activeModal === "create"}
             handleCloseModal={handleCloseModal}
-            onAddItem={handleAddNewItem}
+            onAddItem={handleAddItem}
           />
         )}
         {activeModal === "preview" && (

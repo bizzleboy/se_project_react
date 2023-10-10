@@ -1,12 +1,15 @@
 import { defaultClothingItems } from "../../utils/constants";
 import WeatherCard from "../WeatherCard/WeatherCard";
 import ItemCard from "../ItemCard/ItemCard";
-import { useContext, useMemo } from "react";
+import { useContext, useMemo, useState } from "react";
 import { CurrentTemperatureUnitContext } from "../Contexts/CurrentTemperatureUnitContext";
 
 function Main({ weatherTemp, onSelectCard }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
   const temp = weatherTemp?.temperature?.[currentTemperatureUnit] || 999;
+
+  const [clothingItems, setClothingItems] = useState(defaultClothingItems);
+
   const weatherType = useMemo(() => {
     if (temp >= 86) {
       return "hot";

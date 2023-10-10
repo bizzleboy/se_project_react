@@ -7,7 +7,6 @@ import terryImage from "../../images/terry.svg";
 const SideBar = () => {
   // These values can be fetched from an API or application state
   const username = "Terry";
-  const avatarURL = "/path-to-avatar.jpg";
 
   return (
     <div className="profile__sidebar">
@@ -18,6 +17,9 @@ const SideBar = () => {
 };
 
 const ClothesSection = ({ userClothingItems, onSelectCard }) => {
+  console.log(1312313131312);
+  console.log(userClothingItems);
+
   return (
     <section className="user-clothing">
       <div>
@@ -28,7 +30,7 @@ const ClothesSection = ({ userClothingItems, onSelectCard }) => {
           </button>
         </div>
         <div className="card_items">
-          {defaultClothingItems.map((item) => (
+          {userClothingItems.map((item) => (
             <ItemCard key={item._id} item={item} onSelectCard={onSelectCard} />
           ))}
         </div>
@@ -37,11 +39,8 @@ const ClothesSection = ({ userClothingItems, onSelectCard }) => {
   );
 };
 
-const Profile = () => {
+const Profile = ({ userClothingItems, onSelectCard }) => {
   // Sample user's clothing data. Replace this with actual data (e.g., fetched from an API).
-  const userClothingItems = [
-    // ... Sample data as before
-  ];
 
   const handleSelectCard = (item) => {
     // Define what should be done when a card is selected
@@ -52,7 +51,7 @@ const Profile = () => {
       <SideBar />
       <ClothesSection
         userClothingItems={userClothingItems}
-        onSelectCard={handleSelectCard}
+        onSelectCard={onSelectCard}
       />
     </div>
   );

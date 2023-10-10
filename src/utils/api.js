@@ -1,4 +1,4 @@
-const baseUrl = "https://jsonplaceholder.typicode.com";
+const baseUrl = "http://localhost:3001";
 
 export const getItems = async () => {
   try {
@@ -30,14 +30,14 @@ export const deleteItem = async (id) => {
   }
 };
 
-export const postItem = async (name, imageUrl, weather) => {
+export const postItem = async (name, link, weather) => {
   try {
     const response = await fetch(`${baseUrl}/items`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ name, imageUrl, weather }),
+      body: JSON.stringify({ name, link, weather }),
     });
 
     if (!response.ok) {
