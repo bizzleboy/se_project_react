@@ -2,7 +2,7 @@ import "./ItemModal.css";
 import CloseIcon from "../../images/Close.svg";
 import { deleteItem } from "../../utils/api"; // Import the deleteItem function
 
-const ItemModal = ({ selectedCard, onClose }) => {
+const ItemModal = ({ selectedCard, onClose, onDeleteItem }) => {
   const handleDelete = async () => {
     try {
       console.log(selectedCard);
@@ -10,6 +10,7 @@ const ItemModal = ({ selectedCard, onClose }) => {
 
       if (deletedItemId) {
         console.log("Successfully deleted item with id:", deletedItemId);
+        onDeleteItem(deletedItemId);
 
         onClose(); // Close the modal after deletion
       }

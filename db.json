@@ -97,10 +97,16 @@
       "_id": 20
     },
     {
-      "name": "sdad",
-      "link": "http://localhost:3000/profile",
-      "weather": null,
+      "name": "nama",
+      "link": "https://www.figma.com/community/icon?resource_id=789009980664807964&resource_type=plugin",
+      "weather": "warm",
       "_id": 21
+    },
+    {
+      "name": "swag",
+      "link": "https://www.figma.com/community/icon?resource_id=789009980664807964&resource_type=plugin",
+      "weather": "cold",
+      "_id": 22
     }
   ]
 }

@@ -47,6 +47,20 @@ function App() {
     setSelectedCard(card);
   };
 
+  const handleDeleteItem = async (itemId) => {
+    try {
+      const deletedItemId = await deleteItem(itemId);
+      if (deletedItemId) {
+        const updatedItems = clothingItems.filter(
+          (item) => item._id !== deletedItemId
+        );
+        setClothingItems(updatedItems);
+      }
+    } catch (error) {
+      console.error("Failed to delete item:", error);
+    }
+  };
+
   const handleAddItem = async (newItem) => {
     try {
       const { name, link, weather } = newItem;
@@ -106,21 +120,19 @@ function App() {
 
         {error && <p className="error-message">{error}</p>}
         {activeModal === "create" && (
-          /* 
-          <AddItemModal
-            handleCloseModal={handleCloseModal}
-            isOpen={activeModal === "create"}
-            onAddItem={addNewItem}
-          />
-          */
           <AddItemModal
             isOpen={activeModal === "create"}
             handleCloseModal={handleCloseModal}
             onAddItem={handleAddItem}
+            onDeleteItem={handleDeleteItem}
           />
         )}
         {activeModal === "preview" && (
-          <ItemModal selectedCard={selectedCard} onClose={handleCloseModal} />
+          <ItemModal
+            selectedCard={selectedCard}
+            onClose={handleCloseModal}
+            onDeleteItem={handleDeleteItem}
+          />
         )}
       </CurrentTemperatureUnitContext.Provider>
     </div>
