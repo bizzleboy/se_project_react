@@ -47,18 +47,11 @@ function App() {
     setSelectedCard(card);
   };
 
-  const handleDeleteItem = async (itemId) => {
-    try {
-      const deletedItemId = await deleteItem(itemId);
-      if (deletedItemId) {
-        const updatedItems = clothingItems.filter(
-          (item) => item._id !== deletedItemId
-        );
-        setClothingItems(updatedItems);
-      }
-    } catch (error) {
-      console.error("Failed to delete item:", error);
-    }
+  const handleDeleteItem = (deletedItemId) => {
+    const updatedItems = clothingItems.filter(
+      (item) => item._id !== deletedItemId
+    );
+    setClothingItems(updatedItems);
   };
 
   const handleAddItem = async (newItem) => {

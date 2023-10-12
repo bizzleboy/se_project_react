@@ -37,12 +37,6 @@
       "link": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Jeans.png?etag=58345e8bef1ce5f95ac882e71d309e6c"
     },
     {
-      "_id": 8,
-      "name": "Loafers",
-      "weather": "warm",
-      "link": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Loafers.png?etag=dc2d6e1ca7b297597406e35c40aef030"
-    },
-    {
       "_id": 9,
       "name": "Sandals",
       "weather": "hot",
@@ -91,22 +85,28 @@
       "link": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/T-Shirt.png?etag=44ed1963c44ab19cd2f5011522c5fc09"
     },
     {
-      "name": "meow",
-      "link": "https://images.unsplash.com/photo-1695653422718-48c2cc37caf7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG9",
-      "weather": "warm",
-      "_id": 20
-    },
-    {
-      "name": "nama",
+      "name": "milky",
       "link": "https://www.figma.com/community/icon?resource_id=789009980664807964&resource_type=plugin",
-      "weather": "warm",
-      "_id": 21
+      "weather": "hot",
+      "_id": 22
     },
     {
-      "name": "swag",
+      "name": "milk",
       "link": "https://www.figma.com/community/icon?resource_id=789009980664807964&resource_type=plugin",
       "weather": "cold",
-      "_id": 22
+      "_id": 23
+    },
+    {
+      "name": "milk",
+      "link": "https://www.figma.com/community/icon?resource_id=789009980664807964&resource_type=plugin",
+      "weather": "cold",
+      "_id": 25
+    },
+    {
+      "name": "milk",
+      "link": "https://www.figma.com/community/icon?resource_id=789009980664807964&resource_type=plugin",
+      "weather": "cold",
+      "_id": 26
     }
   ]
 }

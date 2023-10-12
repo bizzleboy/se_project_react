@@ -38,6 +38,7 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
       onClose={handleCloseModal}
       isOpen={isOpen}
       onSubmit={handleSubmit}
+      isDisabled={!selectedWeatherType}
     >
       <div className="input-container">
         <label className="modal__label" htmlFor="name">
