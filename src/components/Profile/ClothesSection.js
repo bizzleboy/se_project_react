@@ -1,22 +1,9 @@
 import React from "react";
+import SideBar from "./SideBar";
 import ItemCard from "../ItemCard/ItemCard";
-import "./Profile.css";
-import { defaultClothingItems } from "../../utils/constants";
-import terryImage from "../../images/terry.svg";
+import "./Profile.css"; // You might also want to rename this CSS file and its references if it's specific to ClothesSection.
 
-const SideBar = () => {
-  // These values can be fetched from an API or application state
-  const username = "Terry";
-
-  return (
-    <div className="profile__sidebar">
-      <img src={terryImage} alt="terry" className="profile__picture" />
-      <h2 className="profile__username">{username}</h2>
-    </div>
-  );
-};
-
-const ClothesSection = ({ userClothingItems, onSelectCard }) => {
+const ClothesList = ({ userClothingItems, onSelectCard }) => {
   console.log(1312313131312);
   console.log(userClothingItems);
 
@@ -39,7 +26,7 @@ const ClothesSection = ({ userClothingItems, onSelectCard }) => {
   );
 };
 
-const Profile = ({ userClothingItems, onSelectCard }) => {
+const ClothesSection = ({ userClothingItems, onSelectCard }) => {
   // Sample user's clothing data. Replace this with actual data (e.g., fetched from an API).
 
   const handleSelectCard = (item) => {
@@ -49,7 +36,7 @@ const Profile = ({ userClothingItems, onSelectCard }) => {
   return (
     <div className="profile-container">
       <SideBar />
-      <ClothesSection
+      <ClothesList
         userClothingItems={userClothingItems}
         onSelectCard={onSelectCard}
       />
@@ -57,4 +44,4 @@ const Profile = ({ userClothingItems, onSelectCard }) => {
   );
 };
 
-export default Profile;
+export default ClothesSection;

@@ -1,17 +1,18 @@
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
-import Main from "..//Main/Main";
+import Main from "../Main/Main"; // fixed the extra slash in the import
 
 import { useEffect, useState } from "react";
 import ItemModal from "../ItemModal/ItemModal";
 import { getForecastWeather, parseWeatherData } from "../../utils/weatherApi";
 import "./App.css";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
-import { Switch, Route } from "react-router-dom/cjs/react-router-dom.min";
-import AddItemModal from "../../AddItemModal/AddItemModal";
-import Profile from "../Profile/Profile";
+import { Switch, Route } from "react-router-dom";
+import AddItemModal from "../AddItemModal/AddItemModal";
+import ClothesSection from "../Profile/ClothesSection"; // Changed this line
 import { defaultClothingItems } from "../../utils/constants";
-import { getItems, postItem, deleteItem } from "../../utils/api";
+import { getItems, postItem } from "../../utils/api";
+
 function App() {
   const [error, setError] = useState(null);
   const [activeModal, setActiveModal] = useState("");
@@ -102,7 +103,7 @@ function App() {
             />
           </Route>
           <Route path="/profile">
-            <Profile
+            <ClothesSection
               userClothingItems={clothingItems}
               onSelectCard={handleSelectedCard}
             />
