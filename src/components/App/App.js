@@ -9,7 +9,7 @@ import "./App.css";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 import { Switch, Route } from "react-router-dom";
 import AddItemModal from "../AddItemModal/AddItemModal";
-import ClothesSection from "../Profile/ClothesSection"; // Changed this line
+import Profile from "../Profile/Profile";
 import { defaultClothingItems } from "../../utils/constants";
 import { getItems, postItem } from "../../utils/api";
 
@@ -103,7 +103,7 @@ function App() {
             />
           </Route>
           <Route path="/profile">
-            <ClothesSection
+            <Profile
               userClothingItems={clothingItems}
               onSelectCard={handleSelectedCard}
             />
