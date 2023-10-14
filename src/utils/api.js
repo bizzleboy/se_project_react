@@ -1,52 +1,32 @@
 const baseUrl = "http://localhost:3001";
 
-export const getItems = async () => {
-  try {
-    const response = await fetch(`${baseUrl}/items`);
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-    return await response.json();
-  } catch (error) {
-    console.error("Error fetching items:", error);
-    throw error;
+const checkResponse = async (response) => {
+  if (!response.ok) {
+    throw new Error(`HTTP error! Status: ${response.status}`);
   }
+  return await response.json();
+};
+
+export const getItems = async () => {
+  const response = await fetch(`${baseUrl}/items`);
+  return await checkResponse(response);
 };
 
 export const deleteItem = async (id) => {
-  try {
-    const response = await fetch(`${baseUrl}/items/${id}`, {
-      method: "DELETE",
-    });
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-
-    return id; // We return the id of the deleted item for convenience.
-  } catch (error) {
-    console.error("Error deleting item:", error);
-    throw error;
-  }
+  const response = await fetch(`${baseUrl}/items/${id}`, {
+    method: "DELETE",
+  });
+  await checkResponse(response);
+  return id; // We return the id of the deleted item for convenience.
 };
 
 export const postItem = async (name, link, weather) => {
-  try {
-    const response = await fetch(`${baseUrl}/items`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ name, link, weather }),
-    });
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-
-    return await response.json();
-  } catch (error) {
-    console.error("Error posting new item:", error);
-    throw error;
-  }
+  const response = await fetch(`${baseUrl}/items`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ name, link, weather }),
+  });
+  return await checkResponse(response);
 };
