@@ -106,6 +106,8 @@ function App() {
             <Profile
               userClothingItems={clothingItems}
               onSelectCard={handleSelectedCard}
+              onCreateModal={handleCreateModal}
+              isModalOpen={activeModal === "create"}
             />
           </Route>
         </Switch>

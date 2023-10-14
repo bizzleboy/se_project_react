@@ -1,31 +1,27 @@
 import React, { useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
+
 const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
   const [selectedWeatherType, setSelectedWeatherType] = useState(null);
-
   const [name, setName] = useState("");
+  const [link, setUrl] = useState("");
+
   const handleNameChange = (e) => {
     setName(e.target.value);
   };
 
-  const [link, setUrl] = useState("");
   const handleUrlChange = (e) => {
     setUrl(e.target.value);
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Construct the new item
     const newItem = {
       name,
       link,
       weather: selectedWeatherType,
     };
-
-    // Call the passed in onAddItem function
     onAddItem(newItem);
-
-    // Clear the input fields and close the modal
     setName("");
     setUrl("");
     setSelectedWeatherType(null);
@@ -38,7 +34,7 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
       onClose={handleCloseModal}
       isOpen={isOpen}
       onSubmit={handleSubmit}
-      isDisabled={!selectedWeatherType}
+      isDisabled={!selectedWeatherType || !name || !link}
     >
       <div className="input-container">
         <label className="modal__label" htmlFor="name">

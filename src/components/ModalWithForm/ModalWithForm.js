@@ -28,7 +28,6 @@ const ModalWithForm = ({
             disabled={isDisabled}
             style={{
               backgroundColor: isDisabled ? "#e0e0e0" : "black",
-              color: isDisabled ? "black" : "white",
             }}
           >
             <img src={AddGarmentDisabledImage} alt="Add Garment Disabled" />

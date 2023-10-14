@@ -2,13 +2,22 @@ import React from "react";
 import ItemCard from "../ItemCard/ItemCard";
 import "./Profile.css"; // Reminder about potentially renaming this CSS file if specific to a certain component.
 
-const ClothesSection = ({ userClothingItems, onSelectCard }) => {
+const ClothesSection = ({
+  userClothingItems,
+  onSelectCard,
+  onCreateModal,
+  isModalOpen,
+}) => {
   return (
     <section className="user-clothing">
       <div>
         <div className="profile__header">
           <h2 className="profile__header-title">Your items</h2>
-          <button onClick={() => {}} className="profile__add_new-button">
+          <button
+            onClick={onCreateModal}
+            className="profile__add_new-button"
+            disabled={isModalOpen}
+          >
             + Add new
           </button>
         </div>
