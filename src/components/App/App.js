@@ -86,6 +86,10 @@ function App() {
 
   return (
     <div>
+      <h1>
+        PLEASE START LOCAL SERVER WITH THIS BEFORE NPM STARTING MY PROJECT
+      </h1>
+      <h1> json-server --watch db.json --id _id --port 3001</h1>
       <CurrentTemperatureUnitContext.Provider
         value={{ currentTemperatureUnit, handleToggleSwitchChange }}
       >

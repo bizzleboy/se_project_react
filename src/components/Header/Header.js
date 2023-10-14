@@ -58,6 +58,7 @@ const Header = ({ onCreateModal, isModalOpen }) => {
         </div>
         <Link to="/profile">Name</Link>
         <div>
+        
           <img src={terryImage} alt="terry" />
         </div>
       </div>
