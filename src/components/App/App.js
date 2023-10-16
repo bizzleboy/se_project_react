@@ -10,7 +10,6 @@ import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperature
 import { Switch, Route } from "react-router-dom";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import Profile from "../Profile/Profile";
-import { defaultClothingItems } from "../../utils/constants";
 import { getItems, postItem } from "../../utils/api";
 
 function App() {
@@ -69,7 +68,6 @@ function App() {
     if (currentTemperatureUnit === "F") setCurrentTemperatureUnit("C");
   };
 
-  const combinedItems = [...defaultClothingItems, ...clothingItems];
   useEffect(() => {
     getForecastWeather()
       .then((data) => {
@@ -86,10 +84,6 @@ function App() {
 
   return (
     <div>
-      <h1>
-        PLEASE START LOCAL SERVER WITH THIS BEFORE NPM STARTING MY PROJECT
-      </h1>
-      <h1> json-server --watch db.json --id _id --port 3001</h1>
       <CurrentTemperatureUnitContext.Provider
         value={{ currentTemperatureUnit, handleToggleSwitchChange }}
       >
@@ -103,7 +97,7 @@ function App() {
             <Main
               weatherTemp={temp}
               onSelectCard={handleSelectedCard}
-              items={combinedItems}
+              clothingItems={clothingItems}
             />
           </Route>
           <Route path="/profile">

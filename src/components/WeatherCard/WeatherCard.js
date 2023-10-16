@@ -1,7 +1,6 @@
 import React from "react";
 import "./WeatherCard.css";
 import { weatherOptions } from "../../utils/constants";
-import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 
 const WeatherCard = ({ day, type, weatherTemp = "" }) => {
   const matchedWeatherOption = weatherOptions.find(
@@ -9,9 +8,10 @@ const WeatherCard = ({ day, type, weatherTemp = "" }) => {
   );
 
   const imageSrcUrl = matchedWeatherOption ? matchedWeatherOption.url : "";
-  //<div className="weather__info">{weatherTemp}F</div>
+
   return (
     <section id="weather" className="weather">
+      <div className="weather__info">{weatherTemp}°F</div>
       {imageSrcUrl && (
         <img
           src={imageSrcUrl}

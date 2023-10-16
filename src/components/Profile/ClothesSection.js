@@ -1,6 +1,6 @@
 import React from "react";
 import ItemCard from "../ItemCard/ItemCard";
-import "./Profile.css"; // Reminder about potentially renaming this CSS file if specific to a certain component.
+import "./Profile.css";
 
 const ClothesSection = ({
   userClothingItems,
@@ -22,7 +22,8 @@ const ClothesSection = ({
           </button>
         </div>
         <div className="card_items">
-          {userClothingItems.map((item) => (
+          {/* Reverse the array here */}
+          {[...userClothingItems].reverse().map((item) => (
             <ItemCard key={item._id} item={item} onSelectCard={onSelectCard} />
           ))}
         </div>

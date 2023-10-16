@@ -19,12 +19,6 @@
       "link": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Dress.png?etag=1f9cd32a311ab139cab43494883720bf"
     },
     {
-      "_id": 5,
-      "name": "Hoodie",
-      "weather": "cold",
-      "link": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/Hoodie.png?etag=5f52451d0958ccb1016c78a45603a4e8"
-    },
-    {
       "_id": 6,
       "name": "Jacket",
       "weather": "cold",
@@ -83,6 +77,12 @@
       "name": "T-Shirt",
       "weather": "hot",
       "link": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/T-Shirt.png?etag=44ed1963c44ab19cd2f5011522c5fc09"
+    },
+    {
+      "name": "melk",
+      "link": "https://www.figma.com/community/icon?resource_id=789009980664807964&resource_type=plugin",
+      "weather": "hot",
+      "_id": 18
     }
   ]
 }

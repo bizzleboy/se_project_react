@@ -3,8 +3,9 @@
 }
 
 .weather__info {
+  font-family: CabinetBold;
   position: absolute;
-  top: 20px;
+  top: 30px;
   left: 16px;
   color: white;
   font-size: 36px;
