@@ -70,10 +70,8 @@ function App() {
     setSelectedCard(card);
   };
 
-  const handleDeleteItem = (deletedItemId) => {
-    const updatedItems = clothingItems.filter(
-      (item) => item._id !== deletedItemId
-    );
+  const handleDeleteItem = async (itemId) => {
+    const updatedItems = clothingItems.filter((item) => item._id !== itemId);
     setClothingItems(updatedItems);
   };
 
@@ -82,12 +80,13 @@ function App() {
       const deletedItemId = await deleteItem(itemId);
       if (deletedItemId) {
         console.log("Successfully deleted item with id:", deletedItemId);
-        handleDeleteItem(deletedItemId); // Update local state after successful deletion
+        handleDeleteItem(deletedItemId) // Update local state after successful deletion
+          .then(() => {
+            handleCloseModal();
+          });
       }
     } catch (error) {
       console.error("Failed to delete item:", error);
-    } finally {
-      setIsLoading(false); // Stop loading regardless of success or failure
     }
   };
 
@@ -103,7 +102,7 @@ function App() {
       console.error("Failed to add item:", error);
       return false; // Failed to add the item
     } finally {
-      setIsLoading(true); // Start loading
+      setIsLoading(false); // Start loading
     }
   };
 

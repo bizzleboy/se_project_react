@@ -1,13 +1,9 @@
 import "./ItemModal.css";
 import CloseIcon from "../../images/Close.svg";
-import { deleteItem } from "../../utils/api"; // Import the deleteItem function
 
 const ItemModal = ({ selectedCard, onClose, onDeleteItem }) => {
   const handleDelete = () => {
-    onDeleteItem(selectedCard._id); // Call onDeleteItem with the item id
-    onClose(); // Close the modal after triggering delete
-    //^^^ is necessary. try to remove it and you will see that
-    // the modal will no longer close.
+    onDeleteItem(selectedCard._id); // Trigger the delete in the App component
   };
 
   return (
