@@ -77,13 +77,10 @@ function App() {
 
   const handleDeleteItemFromServer = async (itemId) => {
     try {
-      const deletedItemId = await deleteItem(itemId);
+      const deletedItemId = await deleteItem(itemId); // here you'll wait for the result
       if (deletedItemId) {
-        console.log("Successfully deleted item with id:", deletedItemId);
-        handleDeleteItem(deletedItemId) // Update local state after successful deletion
-          .then(() => {
-            handleCloseModal();
-          });
+        handleDeleteItem(deletedItemId); // Update local state after successful deletion
+        handleCloseModal(); // here you'll close the modal if there were no errors
       }
     } catch (error) {
       console.error("Failed to delete item:", error);

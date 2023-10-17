@@ -1,6 +1,5 @@
 import React from "react";
 import "./ModalWithForm.css";
-import AddGarmentDisabledImage from "../../images/AddGarmentDisabled.svg";
 import CloseIcon from "../../images/CloseDark.svg";
 
 const ModalWithForm = ({
@@ -28,9 +27,10 @@ const ModalWithForm = ({
             disabled={isDisabled}
             style={{
               backgroundColor: isDisabled ? "#e0e0e0" : "black",
+              color: isDisabled ? "Gray" : "white",
             }}
           >
-            <img src={AddGarmentDisabledImage} alt="Add Garment Disabled" />
+            {buttonText}
           </button>
         </form>
       </div>
