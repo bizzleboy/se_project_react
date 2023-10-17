@@ -6,6 +6,8 @@ const ItemModal = ({ selectedCard, onClose, onDeleteItem }) => {
   const handleDelete = () => {
     onDeleteItem(selectedCard._id); // Call onDeleteItem with the item id
     onClose(); // Close the modal after triggering delete
+    //^^^ is necessary. try to remove it and you will see that
+    // the modal will no longer close.
   };
 
   return (
@@ -15,7 +17,11 @@ const ItemModal = ({ selectedCard, onClose, onDeleteItem }) => {
           <img src={CloseIcon} alt="Close" />
         </button>
 
-        <img src={selectedCard.link} alt="Card" className="modal__image" />
+        <img
+          src={selectedCard.link}
+          alt={selectedCard.name}
+          className="modal__image"
+        />
 
         <div className="modal__lower">
           <div className="modal__details">

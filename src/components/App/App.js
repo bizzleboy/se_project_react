@@ -78,7 +78,6 @@ function App() {
   };
 
   const handleDeleteItemFromServer = async (itemId) => {
-    setIsLoading(true); // Start loading
     try {
       const deletedItemId = await deleteItem(itemId);
       if (deletedItemId) {
@@ -94,6 +93,8 @@ function App() {
 
   const handleAddItem = async (newItem) => {
     try {
+      setIsLoading(true); // Start loading
+
       const { name, link, weather } = newItem;
       const addedItem = await postItem(name, link, weather);
       setClothingItems([...clothingItems, addedItem]);
@@ -101,6 +102,8 @@ function App() {
     } catch (error) {
       console.error("Failed to add item:", error);
       return false; // Failed to add the item
+    } finally {
+      setIsLoading(true); // Start loading
     }
   };
 
