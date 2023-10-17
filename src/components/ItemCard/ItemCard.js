@@ -12,7 +12,7 @@ const ItemCard = ({ item, onSelectCard }) => {
           src={item.link}
           className="card_image"
           onClick={handleImageClick} // Use the listener function here
-          alt="cards"
+          alt={item.name}
         />
       </div>
       <div className="card_name">{item.name}</div>

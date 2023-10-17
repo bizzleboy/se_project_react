@@ -3,17 +3,9 @@ import CloseIcon from "../../images/Close.svg";
 import { deleteItem } from "../../utils/api"; // Import the deleteItem function
 
 const ItemModal = ({ selectedCard, onClose, onDeleteItem }) => {
-  const handleDelete = async () => {
-    try {
-      const deletedItemId = await deleteItem(selectedCard._id);
-      if (deletedItemId) {
-        console.log("Successfully deleted item with id:", deletedItemId);
-        onDeleteItem(deletedItemId);
-        onClose(); // Close the modal after deletion
-      }
-    } catch (error) {
-      console.error("Failed to delete item:", error);
-    }
+  const handleDelete = () => {
+    onDeleteItem(selectedCard._id); // Call onDeleteItem with the item id
+    onClose(); // Close the modal after triggering delete
   };
 
   return (

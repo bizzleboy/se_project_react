@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
+const AddItemModal = ({ handleCloseModal, onAddItem, isOpen, isLoading }) => {
   const [selectedWeatherType, setSelectedWeatherType] = useState(null);
   const [name, setName] = useState("");
   const [link, setUrl] = useState("");
@@ -14,19 +14,29 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
     setUrl(e.target.value);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const newItem = {
       name,
       link,
       weather: selectedWeatherType,
     };
-    onAddItem(newItem);
-    setName("");
-    setUrl("");
-    setSelectedWeatherType(null);
-    handleCloseModal();
+
+    // Assuming onAddItem is now an async function that returns true if successful and false otherwise
+    const isAddedSuccessfully = await onAddItem(newItem);
+
+    if (isAddedSuccessfully) {
+      handleCloseModal();
+    }
   };
+
+  useEffect(() => {
+    if (isOpen) {
+      setName("");
+      setUrl("");
+      setSelectedWeatherType(null);
+    }
+  }, [isOpen]);
 
   return (
     <ModalWithForm
@@ -34,7 +44,8 @@ const AddItemModal = ({ handleCloseModal, onAddItem, isOpen }) => {
       onClose={handleCloseModal}
       isOpen={isOpen}
       onSubmit={handleSubmit}
-      isDisabled={!selectedWeatherType || !name || !link}
+      isDisabled={!selectedWeatherType || !name || !link || isLoading} // Disabled button when loading
+      buttonText={isLoading ? "Saving..." : "Save"} // Adjust the button text based on loading state
     >
       <div className="input-container">
         <label className="modal__label" htmlFor="name">
